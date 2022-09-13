@@ -6,8 +6,8 @@ import Resume from '../../settings/resume.json';
 const useStyles = makeStyles((theme) => ({
   socialIcons: {
     position: 'fixed',
-    top: theme.spacing(6),
-    right: theme.spacing(6),
+    top: theme.spacing(11.8),
+    left: theme.spacing(6.4),
   },
   iconButton: {
     height: '2.5rem',

@@ -1,20 +1,25 @@
 {
-    "name": "Mark Tan | Angeles, Philippines",
-    "short_name": "taniyow.vercel.app",
+    "short_name": "QuocPham",
+    "name": "Hi I am Quoc - Developer",
     "icons": [
         {
-            "src": "/android-chrome-192x192.png",
-            "sizes": "192x192",
+            "src": "logo.png",
+            "sizes": "64x64 32x32 24x24 16x16",
             "type": "image/png"
         },
         {
-            "src": "/android-chrome-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
+            "src": "logo.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "logo.png",
+            "type": "image/png",
+            "sizes": "512x512"
         }
     ],
     "start_url": ".",
     "display": "standalone",
-    "theme_color": "#00bfbf",
-    "background_color": "#171c28"
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
 }

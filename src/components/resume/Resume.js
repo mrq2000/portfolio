@@ -1,8 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography, Link } from '@material-ui/core';
-import { TextDecrypt } from '../content/TextDecrypt';
-import ResumePDF from './../../assets/Tan_Mark_Resume.pdf';
+import { Link, Tooltip } from '@material-ui/core';
 import {
   ResumeIcon
 } from '../content/ResumeButton';
@@ -27,18 +25,18 @@ export const Resume = () => {
   const classes = useStyles();
 
   return (
-    <Link
-      color='inherit'
-      underline='none'
-      href= {`${ResumePDF}`}
-      target='_blank'
-      rel='noopener noreferrer'
-      className={classes.footerText}
-    >
-      <ResumeIcon />
-      <Typography component='span'>
-        <TextDecrypt text={' Resume'} />
-      </Typography>
-    </Link>
+    <Tooltip title="This is resume but i did not update it :)">
+      <Link
+        color='inherit'
+        underline='none'
+        // href= {`pdf`}
+        target='_blank'
+        rel='noopener noreferrer'
+        className={classes.footerText}
+      >
+
+        <ResumeIcon />
+      </Link>
+    </Tooltip>
   );
 };

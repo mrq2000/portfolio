@@ -7,7 +7,7 @@ import { FirstName, LastName } from "../../utils/getName";
 
 import './About.css';
 
-import profile from '../../assets/profile.png';
+import profile from '../../assets/me.jpg';
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -20,24 +20,18 @@ const useStyles = makeStyles((theme) => ({
 export const About = () => {
   const classes = useStyles();
   const greetings = "Hello there!";
-  const aboutme = `I'm ${FirstName} ${LastName}, a multidisciplinary 
-                  designer & developer. I'm always down for something new and challenging!
-                  I'm here to help you create beautifully formatted websites. 
-                  My projects mostly includes web development.`;
+  const aboutme = 
+    <>
+      I'm {FirstName} {LastName}, a guy love sovle hard problem and learn something new. 
+      <div>This website was customize using <a target="_blank" rel="noreferrer" href="https://github.com/taniyow/react-portfolio">React portfolio template</a></div>
+      <div>For work you can check out my resume below</div>
+    </>;
 
   return (
     <section id="about">
       <Container component="main" className={classes.main} maxWidth="md">
         <div className="about">
-          <div className="_img"
-            style={{ 
-              background: "url(" + profile + ")",
-              backgroundSize: 'contain',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-            }}
-          >
-          </div>
+          <img className="_img" src={profile} alt="avatar" />
           <div className="_content_wrapper">
             <Typography component='h2' variant="h5">
               <TextDecrypt text={`${greetings}`} />
@@ -45,10 +39,6 @@ export const About = () => {
             <p className="aboutme">
               {aboutme}
             </p>
-            <a href="#contact" className="contact-btn">
-              <i className="fas fa-terminal"></i>
-              <Typography component='span'> Send me a message.</Typography>
-            </a>
           </div>
         </div>
       </Container>

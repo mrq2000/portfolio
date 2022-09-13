@@ -1,17 +1,25 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/rules-of-hooks */
-import React from "react";
-import { Typography } from "@material-ui/core";
+import React, { useContext } from "react";
+import { Typography, Box } from "@material-ui/core";
 import { useState } from "react";
+import { ThemeContext } from "../theme/ThemeProvider";
+
 
 import "./SideNavbar.css";
 
 export const SideNavbar = () => {
+  const { theme } = useContext(ThemeContext);
+
   const [activeNav, setActiveNav] = useState('#');
 
   return (
-    <nav>
-      <a href="#" 
+    <Box component="nav" sx={{
+      '& a': {
+        color: theme === "light" ? '#575757' : '#fff'
+      },
+    }}>
+      <a href="#"
         onClick={() => setActiveNav('#')}
         className={activeNav === '#' ? 'active' : ''}
       >
@@ -27,7 +35,7 @@ export const SideNavbar = () => {
           Projects
         </Typography>
       </a>
-      <a href="#about" 
+      <a href="#about"
         onClick={() => setActiveNav('#about')}
         className={activeNav === '#about' ? 'active' : ''}
       >
@@ -43,6 +51,6 @@ export const SideNavbar = () => {
           Contact
         </Typography>
       </a>
-    </nav>
+    </Box>
   );
 };

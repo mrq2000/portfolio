@@ -30,6 +30,7 @@ import { ThemeContext } from "../theme/ThemeProvider";
 const DisplacementSphere = (props) => {
     const { theme } = useContext(ThemeContext);
     const rgbBackground = theme === "light" ? "250 250 250" : "17 17 17";
+
     const width = useRef(window.innerWidth);
     const height = useRef(window.innerHeight);
     const start = useRef(Date.now());
@@ -80,7 +81,7 @@ const DisplacementSphere = (props) => {
             shader.uniforms = uniforms.current;
             shader.vertexShader = vertShader;
             shader.fragmentShader = fragShader;
-            shader.lights = true;
+            shader.lights = false;
         };
 
         geometry.current = new SphereBufferGeometry(32, 128, 128);
