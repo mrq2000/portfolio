@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSnackbar } from 'notistack';
+import { useMediaQuery } from '@material-ui/core';
+
 import { LogoLink } from '../components/logo/LogoLink';
 import { Content } from '../components/content/Content';
 import { makeStyles } from '@material-ui/core/styles';
@@ -19,6 +22,18 @@ const useStyles = makeStyles(() => ({
 
 export const Home = () => {
   const classes = useStyles();
+  const { enqueueSnackbar } = useSnackbar();
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down('md'))
+
+  useEffect(() => {
+    console.log(isMobile);
+    if (isMobile) {
+      enqueueSnackbar('This site is not responsive! Trying another device for the better experience', { variant: 'info', anchorOrigin: {
+        vertical: 'top',
+        horizontal: 'center',
+      } })
+    }
+  }, [isMobile, enqueueSnackbar]);
 
   return (
     <>
