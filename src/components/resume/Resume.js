@@ -1,6 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link, Tooltip } from '@material-ui/core';
+import { Link as MuiLink, Tooltip } from '@material-ui/core';
+
+import { Link } from "react-router-dom";
 import {
   ResumeIcon
 } from '../content/ResumeButton';
@@ -25,18 +27,17 @@ export const Resume = () => {
   const classes = useStyles();
 
   return (
-    <Tooltip title="This is resume but i did not update it :)">
-      <Link
-        color='inherit'
-        underline='none'
-        // href= {`pdf`}
-        target='_blank'
-        rel='noopener noreferrer'
-        className={classes.footerText}
-      >
-
-        <ResumeIcon />
-      </Link>
-    </Tooltip>
+    <Link to="/resume">
+      <Tooltip title="Resume">
+        <MuiLink
+          color='inherit'
+          underline='none'
+          rel='noopener noreferrer'
+          className={classes.footerText}
+        >
+          <ResumeIcon />
+        </MuiLink>
+      </Tooltip>
+    </Link>
   );
 };

@@ -8,6 +8,7 @@ import { CssBaseline } from "@material-ui/core";
 import { logCredits } from "../utils/logCredits";
 
 import { Home } from "../pages/Home";
+import Resume from '../pages/Resume';
 
 export const App = () => {
     logCredits();
@@ -20,6 +21,7 @@ export const App = () => {
             <HelmetMeta />
             <Switch>
               <Route path="/" exact component={Home} />
+              <Route path="/resume" exact component={Resume} />
               <Route path="*" render={() => <Redirect to={{ pathname: '/' }} />} />
             </Switch>
           </Router>

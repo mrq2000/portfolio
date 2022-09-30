@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
   socialIcons: {
     position: 'fixed',
     top: theme.spacing(11.8),
-    left: theme.spacing(6.4),
+    left: theme.spacing(6.5),
   },
   iconButton: {
     height: '2.5rem',

@@ -1,6 +1,8 @@
 import React from "react";
-import { Link, Tooltip, Zoom } from "@material-ui/core";
+import { Link as MuiLink, Tooltip, Zoom } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
+
 import Resume from "../../settings/resume.json";
 import { Logo } from "./Logo";
 
@@ -21,20 +23,22 @@ export const LogoLink = () => {
   const classes = useStyles();
 
   return (
-    <Tooltip
-      title={Resume.basics.name}
-      placement="right"
-      TransitionComponent={Zoom}
-    >
-      <Link
-          variant="h6"
-          underline="none"
-          color="inherit"
-          noWrap
-          className={classes.svg}
+    <Link to="/">
+      <Tooltip
+        title={Resume.basics.name}
+        placement="right"
+        TransitionComponent={Zoom}
       >
-        <Logo />
-      </Link>
-    </Tooltip>
+        <MuiLink
+            variant="h6"
+            underline="none"
+            color="inherit"
+            noWrap
+            className={classes.svg}
+        >
+          <Logo />
+        </MuiLink>
+      </Tooltip>
+    </Link>
   );
 };

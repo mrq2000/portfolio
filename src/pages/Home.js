@@ -26,8 +26,7 @@ export const Home = () => {
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down('md'))
 
   useEffect(() => {
-    console.log(isMobile);
-    if (isMobile) {
+    if (isMobile) { 
       enqueueSnackbar('This site is not responsive! Trying another device for the better experience', { variant: 'info', anchorOrigin: {
         vertical: 'top',
         horizontal: 'center',
