@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Tooltip } from '@material-ui/core';
+import { Gift, User } from 'react-feather';
 
 import me from '../../assets/me.jpg';
 
@@ -84,6 +85,7 @@ const SKILL_INFOS = [
 
 const CVSkillInfo = ({ mainColor }) => {
   const classes = useStyles();
+  const pxPerVw = document.documentElement.clientWidth / 100;
 
   return (
     <Box display="flex" flexDirection="column" alignItems="center" flex={1}>
@@ -93,6 +95,22 @@ const CVSkillInfo = ({ mainColor }) => {
         <Box bgcolor={mainColor} borderRadius="60px" position="absolute" left="-0.6vw" top="-6.5vw" height="calc(100% + 6.5vw)" width="100%" />
         <Box bgcolor="#292a3c" borderRadius="60px" position="relative" top="-7vw" height="calc(100% + 6.5vw)" width="100%">
           <Box pt="10vw" px="2vw" color="white">
+            <Box mb="1.2vw" display="flex" justifyContent="space-between">
+              <Box display="flex" alignItems="center">
+                <User color={mainColor} size={pxPerVw * 1.5} />
+                <Box ml="0.5vw" sx={{ fontSize: '1.2vw' }}>
+                  MALE
+                </Box>
+              </Box>
+
+              <Box display="flex" alignItems="center">
+                <Gift color={mainColor} size={pxPerVw * 1.5} />
+                <Box ml="0.5vw" sx={{ fontSize: '1.2vw' }}>
+                  March 4, 2000
+                </Box>
+              </Box>
+            </Box>
+
             {SKILL_INFOS.map((skillInfo) => (
               <Box mb="2vw">
                 <Box sx={{ color: mainColor, fontSize: '1.8vw' }}>

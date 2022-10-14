@@ -3,6 +3,8 @@ import React from "react";
 import { Container, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { TextDecrypt } from "../content/TextDecrypt";
+import { Link } from "react-router-dom";
+
 import { FirstName, LastName } from "../../utils/getName";
 
 import './About.css';
@@ -24,7 +26,7 @@ export const About = () => {
     <>
       I'm {FirstName} {LastName}, a guy love sovle hard problem and learn something new. 
       <div>This website was customize using <a target="_blank" rel="noreferrer" href="https://github.com/taniyow/react-portfolio">React portfolio template</a></div>
-      <div>For work you can check out my resume below</div>
+      <div>For work you can check out <Link to="/resume">my resume</Link></div>
     </>;
 
   return (

@@ -1,7 +1,7 @@
 {
   "name": "react-portfolio",
   "version": "0.1.0",
-  "homepage": "https://mrq2000.github.io/",
+  "homepage": "https://portfolio.quocpham.info/",
   "author": "Mark Tan <markcmtan@gmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -21,6 +21,7 @@
     "print-html-to-pdf": "^1.0.8",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
+    "react-feather": "^2.0.10",
     "react-helmet": "^6.1.0",
     "react-material-ui-carousel": "2.2.7",
     "react-router-dom": "^5.2.0",
