@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
-import { Briefcase, Circle } from 'react-feather';
+import { Briefcase, Circle, Award } from 'react-feather';
+import SchoolIcon from '@material-ui/icons/School';
 
 const workExperiences = [
   { company: 'Mushashi', time: '06/2019 - 03/2020', 
@@ -18,7 +19,22 @@ const workExperiences = [
   { company: 'Product HECTAGON', time: '03/2022 - Now',
     description: 'A Web3 project for DAO. I joined as fullstack developer, make frontend base (using React), review smart contract (using Solidty), wirte backend unit test (Nestjs),...'
   },
+];
+
+const educations = [
+  {
+    university: 'Hanoi University of Science and Technology', time: '03/2018 - Now',
+    description: <div>Bachelor of Engineering in Computer Science <div>CPA: 3.1</div></div>
+  }
 ]
+
+const awards = [{
+  title: 'Facebook Innovation 2020',
+  detail: `Round 2 with project 'Social Listening'. Help user rate the campaign success or not through Facebook comment.`
+}, {
+  title: 'Tiki Hackathon 2021',
+  detail: `Top 3 final with project 'Bắt giá', a game integrated in tiki app.`
+}]
 
 const CVPersonalInfo = ({ mainColor }) => {
   const pxPerVw = document.documentElement.clientWidth / 100;
@@ -41,22 +57,22 @@ const CVPersonalInfo = ({ mainColor }) => {
       </Box>
 
       <Box display="flex" alignItems="center" mt="2vw">
-        <Briefcase color={mainColor} style={{ width: '2.2vw' }} />
+        <Briefcase color={mainColor} width="2.2vw" size="auto" />
 
         <Box width="100%" sx={{ ml: "1vw" }}>
           <Box sx={{ fontSize: '1.5vw', fontWeight: '500', letterSpacing: '0.1vw', color: mainColor }}>
             WORKING EXPERIENCE
           </Box>
-          <Box my="0.5vw" sx={{ backgroundColor: mainColor, height: '0.1vw', width: '100%' }} component="hr" />
+          <Box my="0.5vw" sx={{ backgroundColor: mainColor, height: '0.05vw', width: '100%' }} component="hr" />
         </Box>
       </Box>
 
-      <Box mt="1.5vw">
+      <Box mt="1.2vw">
         {
           workExperiences.map((work) => (
             <Box ml="3.2vw">
               <Box display="flex" flex={1} alignItems="center">
-                <Circle color={mainColor} strokeWidth={pxPerVw * 0.2} width="0.8vw" />
+                <Circle color={mainColor} strokeWidth={pxPerVw * 0.2} width="0.8vw" size="auto" />
                 <Box sx={{ fontWeight: '500', fontSize: '1.2vw', letterSpacing: '0.02vw', color: '#403e3e', ml: '0.5vw' }}>
                   {work.company}
                 </Box>
@@ -69,6 +85,74 @@ const CVPersonalInfo = ({ mainColor }) => {
                 {work.description}
               </Box>
             </Box>
+          ))
+        }
+      </Box>
+
+      <Box display="flex" alignItems="center" mt="2vw">
+        <SchoolIcon style={{ color: mainColor, width: "2.2vw", size: "auto" }} />
+
+        <Box width="100%" sx={{ ml: "1vw" }}>
+          <Box sx={{ fontSize: '1.5vw', fontWeight: '500', letterSpacing: '0.1vw', color: mainColor }}>
+            EDUCATION
+          </Box>
+          <Box my="0.5vw" sx={{ backgroundColor: mainColor, height: '0.05vw', width: '100%' }} component="hr" />
+        </Box>
+      </Box>
+
+      <Box mt="1.2vw">
+        {
+          educations.map((education) => (
+            <>
+              <Box ml="3.2vw">
+                <Box display="flex" flex={1} alignItems="center">
+                  <Circle color={mainColor} strokeWidth={pxPerVw * 0.2} width="0.8vw" size="auto" />
+                  <Box display="flex" flex={1} sx={{ fontWeight: '500', fontSize: '1.2vw', letterSpacing: '0.02vw', color: '#403e3e', ml: '0.5vw' }}>
+                    {education.university}
+                  </Box>
+                  <Box sx={{ fontSize: '1vw', letterSpacing: '0.02vw', color: '#5d5d5d', ml: '0.5vw' }}>
+                    ({education.time})
+                  </Box>
+                </Box>
+
+                <Box sx={{ borderLeft: `0.15vw solid ${mainColor}`, color: '#5d5d5d', fontSize: '1vw' }} pl="0.75vw" ml="0.3vw" pb="1vw" pt="0.2vw">
+                  {education.description}
+                </Box>
+              </Box>
+            </>
+          ))
+        }
+      </Box>
+
+
+      <Box display="flex" alignItems="center" mt="2vw">
+        <Award style={{ color: mainColor }} width="2.2vw" size="auto" />
+
+        <Box width="100%" sx={{ ml: "1vw" }}>
+          <Box sx={{ fontSize: '1.5vw', fontWeight: '500', letterSpacing: '0.1vw', color: mainColor }}>
+            Awards
+          </Box>
+          <Box my="0.5vw" sx={{ backgroundColor: mainColor, height: '0.05vw', width: '100%' }} component="hr" />
+        </Box>
+      </Box>
+
+      <Box mt="1.2vw">
+        {
+          awards.map((award) => (
+            <>
+              <Box ml="3.2vw">
+                <Box display="flex" flex={1} alignItems="center">
+                  <Circle color={mainColor} strokeWidth={pxPerVw * 0.2} width="0.8vw" size="auto" />
+                  <Box display="flex" flex={1} sx={{ fontWeight: '500', fontSize: '1.2vw', letterSpacing: '0.02vw', color: '#403e3e', ml: '0.5vw' }}>
+                    {award.title}
+                  </Box>
+                </Box>
+
+                <Box sx={{ borderLeft: `0.15vw solid ${mainColor}`, color: '#5d5d5d', fontSize: '1vw' }} pl="0.75vw" ml="0.3vw" pb="1vw" pt="0.2vw">
+                  {award.detail}
+                </Box>
+              </Box>
+            </>
           ))
         }
       </Box>

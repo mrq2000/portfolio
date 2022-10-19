@@ -96,14 +96,14 @@ const CVSkillInfo = ({ mainColor }) => {
           <Box pt="10vw" px="2vw" color="white">
             <Box mb="1.2vw" display="flex" justifyContent="space-between">
               <Box display="flex" alignItems="center">
-                <User color={mainColor} style={{ width: '1.5vw' }} />
+                <User color={mainColor} width="1.5vw" size="atuo" />
                 <Box ml="0.5vw" sx={{ fontSize: '1.2vw' }}>
                   MALE
                 </Box>
               </Box>
 
               <Box display="flex" alignItems="center">
-                <Gift color={mainColor} style={{ width: '1.5vw'}} />
+                <Gift color={mainColor} width="1.5vw" size="atuo"  />
                 <Box ml="0.5vw" sx={{ fontSize: '1.2vw' }}>
                   March 4, 2000
                 </Box>
