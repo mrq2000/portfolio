@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Box } from '@material-ui/core';
 import { Briefcase, Circle } from 'react-feather';
 
@@ -21,8 +21,7 @@ const workExperiences = [
 ]
 
 const CVPersonalInfo = ({ mainColor }) => {
-  const pxPerVw = useMemo(() => document.documentElement.clientWidth / 100, [document.documentElement.clientWidth]);
-  console.log(document.documentElement.clientWidth);
+  const pxPerVw = document.documentElement.clientWidth / 100;
 
   return (
     <Box pt="2vw" pr="3vw">
@@ -42,7 +41,7 @@ const CVPersonalInfo = ({ mainColor }) => {
       </Box>
 
       <Box display="flex" alignItems="center" mt="2vw">
-        <Briefcase color={mainColor} size={pxPerVw * 2.2} />
+        <Briefcase color={mainColor} style={{ width: '2.2vw' }} />
 
         <Box width="100%" sx={{ ml: "1vw" }}>
           <Box sx={{ fontSize: '1.5vw', fontWeight: '500', letterSpacing: '0.1vw', color: mainColor }}>
@@ -57,7 +56,7 @@ const CVPersonalInfo = ({ mainColor }) => {
           workExperiences.map((work) => (
             <Box ml="3.2vw">
               <Box display="flex" flex={1} alignItems="center">
-                <Circle color={mainColor} strokeWidth={pxPerVw * 0.2} size={pxPerVw * 0.8} />
+                <Circle color={mainColor} strokeWidth={pxPerVw * 0.2} width="0.8vw" />
                 <Box sx={{ fontWeight: '500', fontSize: '1.2vw', letterSpacing: '0.02vw', color: '#403e3e', ml: '0.5vw' }}>
                   {work.company}
                 </Box>

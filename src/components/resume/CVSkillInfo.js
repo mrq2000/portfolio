@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Tooltip } from '@material-ui/core';
 import { Gift, User } from 'react-feather';
@@ -85,26 +85,25 @@ const SKILL_INFOS = [
 
 const CVSkillInfo = ({ mainColor }) => {
   const classes = useStyles();
-  const pxPerVw = document.documentElement.clientWidth / 100;
 
   return (
     <Box display="flex" flexDirection="column" alignItems="center" flex={1}>
-      <Box zIndex={2} component="img" width="18vw" height="21vw" border={`0.4vw solid ${mainColor}`} borderRadius="50%" src={me} className={classes.avatar}>
+      <Box zIndex={100} position="relative" component="img" width="18vw" height="21vw" border={`0.4vw solid ${mainColor}`} borderRadius="50%" src={me} className={classes.avatar}>
       </Box>
-      <Box position="relative" width="80%" flex={1} display="flex">
+      <Box zIndex={2} position="relative" width="80%" flex={1} display="flex">
         <Box bgcolor={mainColor} borderRadius="60px" position="absolute" left="-0.6vw" top="-6.5vw" height="calc(100% + 6.5vw)" width="100%" />
         <Box bgcolor="#292a3c" borderRadius="60px" position="relative" top="-7vw" height="calc(100% + 6.5vw)" width="100%">
           <Box pt="10vw" px="2vw" color="white">
             <Box mb="1.2vw" display="flex" justifyContent="space-between">
               <Box display="flex" alignItems="center">
-                <User color={mainColor} size={pxPerVw * 1.5} />
+                <User color={mainColor} style={{ width: '1.5vw' }} />
                 <Box ml="0.5vw" sx={{ fontSize: '1.2vw' }}>
                   MALE
                 </Box>
               </Box>
 
               <Box display="flex" alignItems="center">
-                <Gift color={mainColor} size={pxPerVw * 1.5} />
+                <Gift color={mainColor} style={{ width: '1.5vw'}} />
                 <Box ml="0.5vw" sx={{ fontSize: '1.2vw' }}>
                   March 4, 2000
                 </Box>

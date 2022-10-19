@@ -2,7 +2,10 @@ import React, { useEffect, useRef, useState, useLayoutEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Box } from '@material-ui/core';
+import { Box, Button } from '@material-ui/core';
+import GetAppIcon from '@material-ui/icons/GetApp';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import ReactToPrint from 'react-to-print';
 
 import Wheel from '../assets/wheel.png';
 import RopeImg from '../assets/rope.png';
@@ -48,7 +51,8 @@ const useStyles = makeStyles((theme) => ({
     height: ROPE_LENGTH,
   },
   cvContainer: {
-    position: 'relative',
+    zIndex: 19,
+    position: 'absolute',
     top: ROPE_LENGTH,
     width: '70vw',
     height: '99vw',
@@ -76,8 +80,9 @@ const Resume = () => {
   const classes = useStyles();
   const pullRopeRef = useRef();
   const wheelRef = useRef();
+  const cvRef = useRef();
   const [mainColor, setMainColor] = useState('#0076af');
-  const [showContent, setShowContent] = useState(false);
+  const [isPrinting, setIsPrinting] = useState(false);
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0)
@@ -115,7 +120,7 @@ const Resume = () => {
   , [])
 
   return (
-    <Box pb="250px">
+    <Box height="120vw">
       <LogoLink />
       <ThemeToggle />
       <SocialIcons />
@@ -125,7 +130,25 @@ const Resume = () => {
       <div className={`${classes.rope} ${classes.ropeTopRight}`}></div>
       <img className={classes.wheel} src={Wheel} alt="img" ref={wheelRef}></img>
 
-      <div className={classes.cvContainer}>
+      <ReactToPrint
+        trigger={() => (
+          <Box sx={{ position: 'fixed', bottom: '2vw', left: '1vw' }}>
+            <Button
+              variant="contained"
+              endIcon={isPrinting ? <CircularProgress size={16} style={{ color: '#fff' }} /> : <GetAppIcon />}
+              style={{ backgroundColor: mainColor, color: '#fff', textTransform: 'inherit' }}
+              disabled={isPrinting}
+            >
+              Download
+            </Button>
+          </Box>
+        )}
+        onBeforePrint={() => setIsPrinting(true)}
+        onAfterPrint={() => setIsPrinting(false)}
+        content={() => cvRef.current}
+      />
+    
+      <div className={classes.cvContainer} ref={cvRef} id="printJS-form">
         <Box display="flex" height="100%" bgcolor="#0076af" sx={{ fontSize: '1.2vw' }}>
           <Box display='flex' flexGrow={1} height="100%" bgcolor="#fff" className={classes.cvMain} py="3vw">
             <Box width="45%"  flex={1} display='flex'>

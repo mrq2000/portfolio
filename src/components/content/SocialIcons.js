@@ -12,7 +12,8 @@ const useStyles = makeStyles((theme) => ({
   iconButton: {
     height: '2.5rem',
     width: '2.5rem',
-    display: 'block',
+    display: 'flex',
+    alignItems: 'center',
     marginBottom: theme.spacing(2),
   },
   icon: {
