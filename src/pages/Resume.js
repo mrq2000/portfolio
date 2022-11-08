@@ -29,10 +29,9 @@ const useStyles = makeStyles((theme) => ({
   },
   pullRope: {
     position: 'fixed',
-    top: '-100px',
-    bottom: '0',
-    left: '5vw',
-    height: '800px',
+    bottom: '20vh',
+    left: '8vw',
+    height: '100vh',
     transform: 'rotate(20deg)',
     transformOrigin: '0% 100%',
   },
@@ -54,11 +53,8 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 19,
     position: 'absolute',
     top: ROPE_LENGTH,
-    width: '70vw',
-    height: '99vw',
     left: '25vw',
     marginBottom: '50px',
-    padding: '1vw',
     backgroundColor: 'white',
     boxShadow: '0 8px 60px 0 rgba(103, 151, 255, .11), 0 12px 90px 0 rgba(103, 151, 255, .11)'
   },
@@ -67,8 +63,8 @@ const useStyles = makeStyles((theme) => ({
     objecFit: 'cover',
     zIndex: 3,
     position: 'fixed',
-    left: 'calc(5vw - 67px)',
-    top: '620px',
+    left: 'calc(8vw - 67px)',
+    bottom: 'calc(20vh - 67px)',
   },
   cvMain: {
     borderTopRightRadius: '15%',
@@ -132,7 +128,7 @@ const Resume = () => {
 
       <ReactToPrint
         trigger={() => (
-          <Box sx={{ position: 'fixed', bottom: '2vw', left: '1vw' }}>
+          <Box sx={{ position: 'fixed', bottom: '2vw', left: '2vw', zIndex: 100 }}>
             <Button
               variant="contained"
               endIcon={isPrinting ? <CircularProgress size={16} style={{ color: '#fff' }} /> : <GetAppIcon />}
@@ -145,21 +141,29 @@ const Resume = () => {
         )}
         onBeforePrint={() => setIsPrinting(true)}
         onAfterPrint={() => setIsPrinting(false)}
-        content={() => cvRef.current}
+        content={() =>  {
+          const test = cvRef.current.cloneNode(true);
+          console.log(test.style);
+          test.style.transformOrigin = 'top left';
+          test.style.transform = 'scale(1.5)';
+          return test;
+        }}
       />
     
-      <div className={classes.cvContainer} ref={cvRef} id="printJS-form">
-        <Box display="flex" height="100%" bgcolor="#0076af" sx={{ fontSize: '1.2vw' }}>
-          <Box display='flex' flexGrow={1} height="100%" bgcolor="#fff" className={classes.cvMain} py="3vw">
-            <Box width="45%"  flex={1} display='flex'>
-              <CVSkillInfo mainColor={mainColor} />
-            </Box>
+      <div className={classes.cvContainer}>
+        <Box ref={cvRef} width='70vw' height='99vw' p="1vw">
+          <Box display="flex" height="100%" bgcolor="#0076af" sx={{ fontSize: '1.2vw' }}>
+            <Box display='flex' flexGrow={1} height="100%" bgcolor="#fff" className={classes.cvMain} py="3vw">
+              <Box width="45%" flex={1} display='flex'>
+                <CVSkillInfo mainColor={mainColor} />
+              </Box>
 
-            <Box width="55%">
-              <CVPersonalInfo mainColor={mainColor} />
+              <Box width="55%">
+                <CVPersonalInfo mainColor={mainColor} />
+              </Box>
             </Box>
+            <Box width="2.5%" height="100%" />
           </Box>
-          <Box width="2.5%" height="100%" />
         </Box>
       </div>
     </Box>

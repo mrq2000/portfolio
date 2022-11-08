@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Box } from '@material-ui/core';
 import { Briefcase, Circle, Award } from 'react-feather';
 import SchoolIcon from '@material-ui/icons/School';
@@ -16,8 +16,12 @@ const workExperiences = [
   { company: 'CODELAB', time: '06/2021 - 03/2022', 
     description: 'Got some experience in mentoring and teaching code, DevOps skills. Do an product project using Reactjs, Nodejs and NFT product using Solidty.'
   },
-  { company: 'Product HECTAGON', time: '03/2022 - Now',
+  { company: 'Product HECTAGON', time: '03/2022 - 10/2022',
     description: 'A Web3 project for DAO. I joined as fullstack developer, make frontend base (using React), review smart contract (using Solidty), wirte backend unit test (Nestjs),...'
+  },
+  {
+    company: 'MENUZEN', time: '11/2022 - Now',
+    description: <>I'm currently developing <a style={{ textDecoration: 'none' }} href="https://core.menuzen.com/c" target="blank">Menuzen App</a></>
   },
 ];
 
@@ -32,7 +36,7 @@ const awards = [{
   title: 'Facebook Innovation 2020',
   detail: `Round 2 with project 'Social Listening'. Help user rate the campaign success or not through Facebook comment.`
 }, {
-  title: 'Tiki Hackathon 2021',
+  title: 'Tiki Hackathon 2022',
   detail: `Top 3 final with project 'Bắt giá', a game integrated in tiki app.`
 }]
 
@@ -40,7 +44,7 @@ const CVPersonalInfo = ({ mainColor }) => {
   const pxPerVw = document.documentElement.clientWidth / 100;
 
   return (
-    <Box pt="2vw" pr="3vw">
+    <Box pt="1.5vw" pr="3vw">
       <Box sx={{ color: mainColor, fontSize: '4vw', fontWeight: 'bold', letterSpacing: '-0.1vw' }}>
         QUOC PHAM.
       </Box>
@@ -56,7 +60,7 @@ const CVPersonalInfo = ({ mainColor }) => {
         Wanna create more awesome projects with unique ideas that make me can do it all day.
       </Box>
 
-      <Box display="flex" alignItems="center" mt="2vw">
+      <Box display="flex" alignItems="center" mt="1.5vw">
         <Briefcase color={mainColor} width="2.2vw" size="auto" />
 
         <Box width="100%" sx={{ ml: "1vw" }}>
@@ -67,10 +71,10 @@ const CVPersonalInfo = ({ mainColor }) => {
         </Box>
       </Box>
 
-      <Box mt="1.2vw">
+      <Box mt="1vw">
         {
           workExperiences.map((work) => (
-            <Box ml="3.2vw">
+            <Box ml="3.2vw" key={work.company}>
               <Box display="flex" flex={1} alignItems="center">
                 <Circle color={mainColor} strokeWidth={pxPerVw * 0.2} width="0.8vw" size="auto" />
                 <Box sx={{ fontWeight: '500', fontSize: '1.2vw', letterSpacing: '0.02vw', color: '#403e3e', ml: '0.5vw' }}>
@@ -89,8 +93,8 @@ const CVPersonalInfo = ({ mainColor }) => {
         }
       </Box>
 
-      <Box display="flex" alignItems="center" mt="2vw">
-        <SchoolIcon style={{ color: mainColor, width: "2.2vw", size: "auto" }} />
+      <Box display="flex" alignItems="center" mt="1.5vw">
+        <SchoolIcon size="auto" width="2.2vw" style={{ color: mainColor }} />
 
         <Box width="100%" sx={{ ml: "1vw" }}>
           <Box sx={{ fontSize: '1.5vw', fontWeight: '500', letterSpacing: '0.1vw', color: mainColor }}>
@@ -100,10 +104,10 @@ const CVPersonalInfo = ({ mainColor }) => {
         </Box>
       </Box>
 
-      <Box mt="1.2vw">
+      <Box mt="1vw">
         {
           educations.map((education) => (
-            <>
+            <Fragment key={education.university}>
               <Box ml="3.2vw">
                 <Box display="flex" flex={1} alignItems="center">
                   <Circle color={mainColor} strokeWidth={pxPerVw * 0.2} width="0.8vw" size="auto" />
@@ -119,13 +123,13 @@ const CVPersonalInfo = ({ mainColor }) => {
                   {education.description}
                 </Box>
               </Box>
-            </>
+            </Fragment>
           ))
         }
       </Box>
 
 
-      <Box display="flex" alignItems="center" mt="2vw">
+      <Box display="flex" alignItems="center" mt="1.5vw">
         <Award style={{ color: mainColor }} width="2.2vw" size="auto" />
 
         <Box width="100%" sx={{ ml: "1vw" }}>
@@ -136,10 +140,10 @@ const CVPersonalInfo = ({ mainColor }) => {
         </Box>
       </Box>
 
-      <Box mt="1.2vw">
+      <Box mt="1vw">
         {
           awards.map((award) => (
-            <>
+            <Fragment key={award.title}>
               <Box ml="3.2vw">
                 <Box display="flex" flex={1} alignItems="center">
                   <Circle color={mainColor} strokeWidth={pxPerVw * 0.2} width="0.8vw" size="auto" />
@@ -152,7 +156,7 @@ const CVPersonalInfo = ({ mainColor }) => {
                   {award.detail}
                 </Box>
               </Box>
-            </>
+            </Fragment>
           ))
         }
       </Box>

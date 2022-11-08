@@ -111,7 +111,7 @@ const CVSkillInfo = ({ mainColor }) => {
             </Box>
 
             {SKILL_INFOS.map((skillInfo) => (
-              <Box mb="2vw">
+              <Box mb="2vw" key={skillInfo.title}>
                 <Box sx={{ color: mainColor, fontSize: '1.8vw' }}>
                   {skillInfo.title}
                 </Box>
@@ -119,7 +119,7 @@ const CVSkillInfo = ({ mainColor }) => {
                 <Box display="flex" flexDirection="row" mt="1vw">
                   {
                     skillInfo.skills.map((skill) => (
-                      <Box ml="0.4vw">
+                      <Box ml="0.4vw" key={skill.title}>
                         <Tooltip title={skill.title} placement="top">
                           <img src={skill.img} className={classes.skillLogo} alt={skill.title} />
                         </Tooltip>
