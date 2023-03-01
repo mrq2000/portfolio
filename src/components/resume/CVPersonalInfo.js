@@ -28,7 +28,7 @@ const workExperiences = [
 const educations = [
   {
     university: 'Hanoi University of Science and Technology', time: '03/2018 - Now',
-    description: <div>Bachelor of Engineering in Computer Science <div>CPA: 3.1</div></div>
+    description: <div>Engineering degree of Engineering in Computer Science <div>CPA: 3.1</div></div>
   }
 ]
 
