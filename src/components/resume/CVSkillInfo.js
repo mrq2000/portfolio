@@ -175,8 +175,8 @@ const CVSkillInfo = ({ mainColor }) => {
                 WEBSITE:
               </Box>
               <Box>
-                <a style={{ color: 'white', textDecoration: 'none' }} href="https://portfolio.quocpham.info/" target="_blank" rel="noreferrer">
-                  https://portfolio.quocpham.info
+                <a style={{ color: 'white', textDecoration: 'none' }} href="https://portfolio.quocpha.com" target="_blank" rel="noreferrer">
+                  https://portfolio.quocpha.com
                 </a>
               </Box>
             </Box>

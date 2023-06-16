@@ -142,11 +142,10 @@ const Resume = () => {
         onBeforePrint={() => setIsPrinting(true)}
         onAfterPrint={() => setIsPrinting(false)}
         content={() =>  {
-          const test = cvRef.current.cloneNode(true);
-          console.log(test.style);
-          test.style.transformOrigin = 'top left';
-          test.style.transform = 'scale(1.5)';
-          return test;
+          const cloneCv = cvRef.current.cloneNode(true);
+          cloneCv.style.transformOrigin = 'top left';
+          cloneCv.style.transform = 'scale(1.5)';
+          return cloneCv;
         }}
       />
     
