@@ -20,20 +20,26 @@ const useStyles = makeStyles((theme) => ({
 export const Works = () => {
   const classes = useStyles();
   const [projects, setProjects] = useState([
-    { 
+    {
       id: 1,
+      title: 'Taothiepcuoi.com',
+      description: <>A website helps you build an awesome wedding card with a useful editor and many templates. You can check it out on: <a href="https://bixel-nft.com/" target="_blank" rel="noreferrer">https://www.taothiepcuoi.com/</a></>,
+      images: [`/images/beauty-wedding/1.png`, `/images/beauty-wedding/2.png`, `/images/beauty-wedding/3.png`],
+    },
+    { 
+      id: 2 ,
       title: 'Bixel NFT', 
       description: <>A breakthrough in NFT world! It's my personal project with quick idea cross in my mind. You can check it out on: <a href="https://bixel-nft.com/" target="_blank" rel="noreferrer">https://bixel-nft.com/</a> (It was closed and not woriking right now, maybe uptrend i will open it again)</>,
       images: [`/images/bixel/1.png`, `/images/bixel/2.png`, `/images/bixel/3.png`],
     },
     {
-      id: 2,
+      id: 3,
       title: 'My Social Network',
       description: <>A project in my university using React, Express, Socket for chat realtime, S3 for saving image, with many function was cloned like facebook.</>,
       images: [`/images/mysocial/1.png`, `/images/mysocial/2.png`, `/images/mysocial/3.png`, `/images/mysocial/4.png`],
     },
     {
-      id: 3,
+      id: 4 ,
       title: 'KILL YOUR TIME',
       description: <>A small project when i was second year student, it's a funny game using Reactnative. You can download in <a target="_blank" rel="noreferrer" href='https://play.google.com/store/apps/details?id=com.KaiPham.KillYourTime&hl=vi&gl=US'>GooglePlay</a></>,
       images: [`/images/killyourtime/1.jpg`, `/images/killyourtime/2.jpg`, `/images/killyourtime/3.jpg`],

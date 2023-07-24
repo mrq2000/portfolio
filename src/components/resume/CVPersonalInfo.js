@@ -57,7 +57,8 @@ const CVPersonalInfo = ({ mainColor }) => {
 
       <Box sx={{ fontSize: '1.1vw', color: '#5d5d5d' }}>
         Hi! I'm Quoc, a guy who loves to solve hard problems and learn new things.
-        Wanna create more awesome projects with unique ideas that make me can do it all day.
+        I want to create more awesome projects with unique ideas that make me want to do them all day. <br />
+        Founder of <a href="https://www.taothiepcuoi.com/" target="_blank" rel="noreferrer">taothiepcuoi.com</a>.
       </Box>
 
       <Box display="flex" alignItems="center" mt="1.5vw">
