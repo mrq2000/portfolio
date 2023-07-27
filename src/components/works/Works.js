@@ -23,7 +23,7 @@ export const Works = () => {
     {
       id: 1,
       title: 'Taothiepcuoi.com',
-      description: <>A website helps you build an awesome wedding card with a useful editor and many templates. You can check it out on: <a href="https://bixel-nft.com/" target="_blank" rel="noreferrer">https://www.taothiepcuoi.com/</a></>,
+      description: <>A website helps you build an awesome wedding card with a useful editor and many templates. You can check it out on: <a href="https://www.taothiepcuoi.com/" target="_blank" rel="noreferrer">https://www.taothiepcuoi.com/</a></>,
       images: [`/images/beauty-wedding/1.png`, `/images/beauty-wedding/2.png`, `/images/beauty-wedding/3.png`],
     },
     { 
