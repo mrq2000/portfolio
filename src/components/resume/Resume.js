@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link as MuiLink, Tooltip } from '@material-ui/core';
+import { Link as MuiLink, Tooltip, Typography } from '@material-ui/core';
 
 import { Link } from "react-router-dom";
 import {
@@ -28,16 +28,17 @@ export const Resume = () => {
 
   return (
     <Link to="/resume">
-      <Tooltip title="Resume">
-        <MuiLink
-          color='inherit'
-          underline='none'
-          rel='noopener noreferrer'
-          className={classes.footerText}
-        >
-          <ResumeIcon />
-        </MuiLink>
-      </Tooltip>
+      <MuiLink
+        color='inherit'
+        underline='none'
+        rel='noopener noreferrer'
+        className={classes.footerText}
+      >
+        <ResumeIcon />
+        <Typography style={{ fontWeight: 'bold', color: 'black' }}>
+          My CV
+        </Typography>
+      </MuiLink>
     </Link>
   );
 };

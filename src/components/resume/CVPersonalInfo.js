@@ -21,7 +21,7 @@ const workExperiences = [
   },
   {
     company: 'MENUZEN', time: '11/2022 - Now',
-    description: <>I'm currently developing <a style={{ textDecoration: 'none' }} href="https://core.menuzen.com/c" target="blank">Menuzen App</a></>
+    description: <>I'm currently developing <a style={{ textDecoration: 'none' }} href="https://menuzen.com" target="blank">Menuzen App</a>. Remote fulltime as fullstack developer (using Graphql, Reactjs, Nextjs, Tailwind,..)</>
   },
 ];
 
