@@ -4,8 +4,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Box, Button } from '@material-ui/core';
 import GetAppIcon from '@material-ui/icons/GetApp';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import ReactToPrint from 'react-to-print';
 
 import Wheel from '../assets/wheel.png';
 import RopeImg from '../assets/rope.png';
@@ -78,7 +76,6 @@ const Resume = () => {
   const wheelRef = useRef();
   const cvRef = useRef();
   const [mainColor, setMainColor] = useState('#0076af');
-  const [isPrinting, setIsPrinting] = useState(false);
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0)
@@ -126,28 +123,17 @@ const Resume = () => {
       <div className={`${classes.rope} ${classes.ropeTopRight}`}></div>
       <img className={classes.wheel} src={Wheel} alt="img" ref={wheelRef}></img>
 
-      <ReactToPrint
-        trigger={() => (
-          <Box sx={{ position: 'fixed', bottom: '2vw', left: '2vw', zIndex: 100 }}>
-            <Button
-              variant="contained"
-              endIcon={isPrinting ? <CircularProgress size={16} style={{ color: '#fff' }} /> : <GetAppIcon />}
-              style={{ backgroundColor: mainColor, color: '#fff', textTransform: 'inherit' }}
-              disabled={isPrinting}
-            >
-              Download
-            </Button>
-          </Box>
-        )}
-        onBeforePrint={() => setIsPrinting(true)}
-        onAfterPrint={() => setIsPrinting(false)}
-        content={() =>  {
-          const cloneCv = cvRef.current.cloneNode(true);
-          cloneCv.style.transformOrigin = 'top left';
-          cloneCv.style.transform = 'scale(1.5)';
-          return cloneCv;
-        }}
-      />
+      <Box sx={{ position: 'fixed', bottom: '2vw', left: '2vw', zIndex: 100 }}>
+        <a download href='/QuocPham_Fullstack_developer_cv.pdf'>
+          <Button
+            variant="contained"
+            endIcon={<GetAppIcon />}
+            style={{ backgroundColor: mainColor, color: '#fff', textTransform: 'inherit' }}
+          >
+            Download
+          </Button>
+        </a>
+      </Box>
     
       <div className={classes.cvContainer}>
         <Box ref={cvRef} width='70vw' height='99vw' p="1vw">
